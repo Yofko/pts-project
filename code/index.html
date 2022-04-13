@@ -10,25 +10,32 @@
     <title>Convert excel to JSON Object</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    
 </head>
 
 <body>
     <div class="conatiner mt-5">
         <div class="row">
             <div class="col-md-3"></div>
+
             <div class="col-md-3">
                 <input class="form-control" type="file" id="input" accept=".xls,.xlsx"  >
             </div>
+
             <div class="col-md-2">
                 <button class="btn btn-primary" id="button">Convert</button>
             </div>
-                <div class="col-md-12">
+            
+            <div class="col-md-12">
                 <pre id="jsondata"></pre>
             </div>
+
+        </div>
+        <div class="col-md-12">
+            <pre id="jsondata"></pre>
         </div>
     </div>
 </body>
-
-<script type = "module" src="FileManager.js"></script>
+<script src="FileManager.js"></script>
 
 </html>
