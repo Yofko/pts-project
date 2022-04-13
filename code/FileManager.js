@@ -1,5 +1,5 @@
 class FileManager {
-    
+
     constructor() {
     }
 
@@ -7,7 +7,6 @@ class FileManager {
         let fileReader = new FileReader();
 
         fileReader.readAsBinaryString(selectedFile);
-        
         fileReader.onload = (event) => {
             let temp;
             let data = event.target.result;
@@ -36,10 +35,6 @@ class FileManager {
             saveAs(blob, "testing.txt");    
         }
     }
-
-    ConvertToJSON() {
-    }
-
     JsonGetter() {
         return blob;
     }
@@ -52,6 +47,7 @@ let selectedFile;
 console.log(window.XLSX);
 document.getElementById('input').addEventListener("change", (event) => {
     selectedFile = event.target.files[0];
+
 });
 
 var obj = new FileManager(); 
@@ -60,5 +56,3 @@ document.getElementById('button').addEventListener("click", () => {
     console.log(obj.JsonGetter());
 });
 var blob;
-
-console.log("kur ZA NAKOV");
