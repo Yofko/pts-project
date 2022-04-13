@@ -45,6 +45,11 @@ console.log(window.XLSX);
 document.getElementById('input').addEventListener("change", (event) => {
     selectedFile = event.target.files[0];
 })
+
+//var fm = new FileManager();
+//fm.ReadFromExcel();
+
+
 //var fm = new FileManager();
 //fm.ReadFromExcel();
 
@@ -54,11 +59,17 @@ document.getElementById('button').addEventListener("click", () => {
     if(selectedFile) 
     {
         let fileReader = new FileReader();
+
         // let fileName = "test.xlsx";
         // let text_blob = new Blob([fileName], {
         //     type: "text/plain; charset=utf-8"
         // });
         fileReader.readAsBinaryString(selectedFile);
+
+
+
+        fileReader.readAsBinaryString("test.xlsx");
+
         fileReader.onload = (event) => {
             let data = event.target.result;
             let workbook = XLSX.read(data,{type:"binary"});
@@ -70,6 +81,7 @@ document.getElementById('button').addEventListener("click", () => {
                 document.getElementById("jsondata").innerHTML = JSON.stringify(rowObject,undefined,4)
                 temp = JSON.stringify(rowObject);
             });
+
 
             let smth = JSON.parse(temp);
             
@@ -86,4 +98,11 @@ document.getElementById('button').addEventListener("click", () => {
             saveAs(blob, "testing.txt");
         }
     }
+
 });
+/*
+          var blob = new Blob([temp], {type: "text/plain; charset=utf-8"});
+            saveAs(blob, "testing.txt");
+            let smth = JSON.parse(temp);
+            console.log(smth[0].ID);
+*/
