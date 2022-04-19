@@ -5,10 +5,12 @@ class StatisticalAnalyser {
     }
 
     // example method
-    ConvertFromJSON() {
+    ConvertToJSON() {
+        // document.getElementById('button2').addEventListener("click", () => {
+            let json = JSON.parse(obj.JsonGetter());
+            console.log(json);
+            return json;
+        // });
     }
 }
-
 var obj = new FileManager();
-console.log("HELLO I AM UNDER THE WATTER: " + obj.JsonGetter());
-

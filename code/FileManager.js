@@ -1,5 +1,5 @@
 class FileManager {
-
+    
     constructor() {
     }
 
@@ -47,7 +47,7 @@ let selectedFile;
 console.log(window.XLSX);
 document.getElementById('input').addEventListener("change", (event) => {
     selectedFile = event.target.files[0];
-
+       
 });
 
 var obj = new FileManager(); 
