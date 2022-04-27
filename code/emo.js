@@ -14,9 +14,29 @@ class Emo {
 }
 
 var sa = new StatisticalAnalyser();
+var temp = sa.CalculateSomething();
 var emo = new Emo();
 
 var data;
+document.getElementById('button2').addEventListener("click", () => {
+    emo.CalculateSomething();
+});
+
+document.getElementById('button2').addEventListener("click", () => {
+    emo.CalculateSomething();
+});
+
+document.getElementById('button2').addEventListener("click", () => {
+    emo.CalculateSomething();
+});
+
+document.getElementById('button2').addEventListener("click", () => {
+    emo.CalculateSomething();
+});
+document.getElementById('button2').addEventListener("click", () => {
+    emo.CalculateSomething();
+});
+
 document.getElementById('button2').addEventListener("click", () => {
     emo.CalculateSomething();
 });

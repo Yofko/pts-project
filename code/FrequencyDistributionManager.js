@@ -1,3 +1,5 @@
+//идеята е да се правят обекти в UI meniger и от там ще се извикват функциите с исканията/user storitata, denkata.show() => показва резултатите от двете таблици + резултатите
+
 class FrequencyDistributionManager {
 
     // class constructor
