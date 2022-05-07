@@ -6,11 +6,21 @@ class StatisticalAnalyser {
 
     // example method
     ConvertToJSON() {
-        // document.getElementById('button2').addEventListener("click", () => {
             let json = JSON.parse(obj.JsonGetter());
             console.log(json);
             return json;
-        // });
+    }
+	
+	ConvertToJSONUploadedFiles() {
+            let json = JSON.parse(obj.JsonGetterUploadedFiles());
+            console.log(json);
+            return json;
+    }
+	
+	ConvertToJSONStudentGrades() {
+            let json = JSON.parse(obj.JsonGetterStudentGrades());
+            console.log(json);
+            return json;
     }
 }
 var obj = new FileManager();

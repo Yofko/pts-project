@@ -6,10 +6,17 @@ class StatisticalScatteringManager {
 
     // example method
     CountLections() {
-            let json = obj.ConvertToJSON();
-            console.log(json);
-			let newJson;
-			let cnt1, cnt2, cnt3, cnt4, cnt5, cnt6, cnt7, cnt8, cnt9, cnt10 = 0;
+            let json = sap.ConvertToJSON();
+			let cnt1 = 0;
+			let cnt2 = 0;
+			let cnt3 = 0;
+			let cnt4 = 0;
+			let cnt5 = 0;
+			let cnt6 = 0;
+			let cnt7 = 0;
+			let cnt8 = 0;
+			let cnt9 = 0;
+			let cnt10 = 0;
 			for (let i = 0; i < json.length; i++) {
 				switch(json[i]["Event context"]){
 					case "File: Лекция 1: Въведение в програмиране за семантичен уеб":
@@ -44,40 +51,69 @@ class StatisticalScatteringManager {
 						break;
 				}
 		    }
-			newJson["Лекция 1"] = cnt1;
-			newJson["Лекция 2"] = cnt2;
-			newJson["Лекция 3"] = cnt3;
-			newJson["Лекция 4"] = cnt4;
-			newJson["Лекция 5"] = cnt5;
-			newJson["Лекция 6"] = cnt6;
-			newJson["Лекция 7"] = cnt7;
-			newJson["Лекция 8"] = cnt8;
-			newJson["Лекция 9"] = cnt9;
-			newJson["Лекция 10"] = cnt10;
-			console.log(newJson);
+			let newJson = [{"Лекция 1":cnt1},
+			{"Лекция 2":cnt2},
+			{"Лекция 3":cnt3},
+			{"Лекция 4":cnt4},
+			{"Лекция 5":cnt5},
+			{"Лекция 6":cnt6},
+			{"Лекция 7":cnt7},
+			{"Лекция 8":cnt8},
+			{"Лекция 9":cnt9},
+			{"Лекция 10":cnt10}
+			]
             return newJson;
     }
 	SwingManager() {
-		let min = Number.MIN_VALUE;
-		let max = Number.MAX_VALUE;
-		let json = newObj.CountLections();
-		for(let i = 0; i < json.length; i++)
+		let min = Number.MIN_SAFE_INTEGER;
+		let max = Number.MAX_SAFE_INTEGER; 
+		let jsonInner = newObj.CountLections();
+		for(let i = 0; i < jsonInner.length; i++)
 		{
-			if(min<json[i]["Лекция"])
+			if(min<jsonInner[i]["Лекция " + (i + 1)])
 			{
-				min = json[i]["Лекция"];
+				min = jsonInner[i]["Лекция " + (i + 1)];
 			}
-			if(max>json[i]["Лекция"])
+			if(max>jsonInner[i]["Лекция " + (i + 1)])
 			{
-				max = json[i]["Лекция"];
-			}
+				max = jsonInner[i]["Лекция " + (i + 1)];
+			} 
 		}
-		return max-min;
+		return min-max;
 	}
+	
+	DispersionManager() {
+		let jsonInner = newObj.CountLections();
+		let avarageManager = 0;
+		let squareManager = 0;
+		for(let i = 0; i < jsonInner.length; i++)
+		{
+			avarageManager = avarageManager + jsonInner[i]["Лекция " + (i + 1)];
+		}
+		avarageManager = avarageManager / jsonInner.length;
+		
+		for(let i = 0; i < jsonInner.length; i++)
+		{
+			squareManager = squareManager + Math.pow((jsonInner[i]["Лекция " + (i + 1)]-avarageManager),2);
+		}
+		
+		return squareManager/jsonInner.length;
+	}	
 }
-document.getElementById('button3').addEventListener("click", () => {
-    let swing = newObj.SwingManager();
-    console.log(swing);
-});
-var obj = new StatisticalAnalyser();
-var newObj = new StatisticalScatteringManager();
+
+// document.getElementById('button3').addEventListener("click", () => {
+//     let swing = newObj.SwingManager();
+//     console.log(swing);
+// });
+
+// document.getElementById('button4').addEventListener("click", () => {
+//     let dispersion = newObj.DispersionManager();
+//     console.log(dispersion);
+// });
+
+// document.getElementById('button5').addEventListener("click", () => {
+//     let dispersion = newObj.DispersionManager(); 
+//     console.log(Math.sqrt(dispersion));
+// });
+
+var sap = new StatisticalAnalyser();

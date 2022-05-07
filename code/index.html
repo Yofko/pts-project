@@ -10,6 +10,7 @@
     <title>Convert excel to JSON Object</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     
 </head>
 
@@ -18,39 +19,46 @@
         <div class="row">
             <div class="col-md-3"></div>
 
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <input  class="form-control" type="file" id="input" accept=".xls,.xlsx"  style="width:400px;font-size:14pt;" multiple>
-            </div>
-            
-            <div class="col-md-12">
-                <pre id="jsondata"></pre>
-            </div>
-
-            <div class="col-md-1">
-                <button class="btn btn-primary" id="button">Convert</button>
-            </div>
-
-            <div class="col-md-2">
-                <button class="btn btn-primary" id="button2">ZadnoSalto</button>
-            </div>
-
-            <div class="col-md-3">
-                <button class="btn btn-primary" id="button2">Frequency Distribution test</button>
-            </div>
+            </div> -->
+			
+			<p><a href="StatisticalScatteringUI.html">Google</a></p>
 
         </div>
-        <div class="col-md-12">
-            <pre id="jsondata"></pre>
-        </div>
-
     </div>
+
+    <div class="frame">
+        <div class="col-md-3">
+            <input  class="form-control" type="file" id="input" accept=".xls,.xlsx"  style="width:325px;height:50px;font-size:14pt;" multiple>
+        </div>
+        <br>
+        <div class="btn-group">
+            <button id="emchoButton1" class="button button1" type="button"><h4>LOAD FILES</h4></button><br>
+            <button id="emchoButton2" class="button button1" type="button" disabled><h4>RAW LOG</h4></button><br>
+            <button id="emchoButton3" class="button button1" type="button" disabled><h4>CENTRAL TENDENCY</h4></button><br>
+            <button id="emchoButton4" class="button button1" type="button" disabled><h4>CORRELATION ANALYSIS</h4></button><br>
+            <button id="emchoButton5" class="button button1" type="button" disabled><h4>STATISTICAL SCATTERING</h4></button><br>
+            <button id="emchoButton6" class="button button1" type="button" disabled><h4>FREQUENCY DISTRIBUTION</h4></button>
+        </div>    
+    </div>
+
+    <br>
+    <pre class="frame-content"></div>
+        <!-- <div class="col-md-12"> -->
+            <pre id="jsondata2"></pre>
+        <!-- </div> -->
+        <!-- <div class="col-md-12"> -->
+            <pre id="jsondata3"></pre>
+        <!-- </div> -->
+    </pre>
 </body>
 
 <script src="FileManager.js"></script>       
 <script src="StatisticalAnalyzer.js"></script> 
-<script src="emo.js"></script>
-<script src="FrequencyDistributionManager.js"></script>
+<script src="CentralTendencyManager.js"></script>
+<script src="CorrelationAnalysisManager.js"></script>
 <script src="StatisticalScatteringManager.js"></script>
-
+<script src="UserDataManager.js"></script>
 
 </html>
