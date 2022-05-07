@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+        crossorigin="anonymous">
+    <title>Convert excel to JSON Object</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <div class="conatiner mt-5">
+        <div class="row">
+            <div class="col-md-3"></div>
+
+            <!-- <div class="col-md-3">
+                <input  class="form-control" type="file" id="input" accept=".xls,.xlsx"  style="width:400px;font-size:14pt;" multiple>
+            </div> -->
+			
+			<!-- <p><a href="StatisticalScatteringUI.html">Google</a></p> -->
+
+        </div>
+    </div>
+
+    <div class="frame">
+        <img src="logo.png" class="pic">
+        <div class="col-md-3">
+            <input  class="form-control" type="file" id="input" accept=".xls,.xlsx"  style="width:325px;height:50px;font-size:14pt;" multiple>
+        </div>
+        <br>
+        <div class="btn-group">
+            <button id="emchoButton1" class="button button1" type="button"><h4>LOAD FILES</h4></button><br>
+            <button id="emchoButton2" class="button button1" type="button" disabled><h4>RAW LOG</h4></button><br>
+            <button id="emchoButton3" class="button button1" type="button" disabled><h4>CENTRAL TENDENCY</h4></button><br>
+            <button id="emchoButton4" class="button button1" type="button" disabled><h4>CORRELATION ANALYSIS</h4></button><br>
+            <button id="emchoButton5" class="button button1" type="button" disabled><h4>STATISTICAL SCATTERING</h4></button><br>
+            <button id="emchoButton6" class="button button1" type="button" disabled><h4>FREQUENCY DISTRIBUTION</h4></button>
+        </div>    
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <pre id="outerPre" class="frame-content">
+        
+    </pre>
+</body>
+
+<script src="FileManager.js"></script>       
+<script src="StatisticalAnalyzer.js"></script> 
+<script src="CentralTendencyManager.js"></script>
+<script src="CorrelationAnalysisManager.js"></script>
+<script src="StatisticalScatteringManager.js"></script>
+<script src="FrequencyDistributionManager.js"></script>
+<script src="UserDataManager.js"></script>
+
+</html>

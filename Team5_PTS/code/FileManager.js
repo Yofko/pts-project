@@ -89,6 +89,10 @@ class FileManager {
 			sessionStorage.setItem('Log', writeToFile);
 			sessionStorage.setItem('Grades', studentGrades);
 			sessionStorage.setItem('Uploaded', uploadedFiles);
+			let saveToFile = writeToFile + studentGrades + uploadedFiles;
+
+			let blob = new Blob([saveToFile], {type: "text/plain; charset=utf-8"});
+            saveAs(blob, "testing.txt");    
         }
     }
     JsonGetter() {
@@ -101,9 +105,6 @@ class FileManager {
 	
 	JsonGetterStudentGrades() {
         return studentGrades;
-    }
-    
-    WriteToJSON() {
     }
 }
 

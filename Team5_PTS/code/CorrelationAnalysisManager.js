@@ -41,6 +41,9 @@ class CorrelationAnalysisManager {
         }
 
         console.log(relativeFrequencyArr);
+
+        return [{"map": map},
+                {"array": relativeFrequencyArr}];
         
     }
 
@@ -117,8 +120,12 @@ class CorrelationAnalysisManager {
                 stringRepresentationTwo = "The correlation is NOT statistically significant for level of significance 0.01";
             }
         }
-
+        
         console.log(finalRes);
+
+        return [{"significanceOne": stringRepresentationOne, 
+                 "significanceTwo": stringRepresentationTwo,
+                 "result": finalRes}];
     }
 
 }
@@ -129,8 +136,3 @@ var correlate = new CorrelationAnalysisManager();
 var data;
 var IDHolder;
 var map;
-
-// document.getElementById('emchoButton4').addEventListener("click", () => {
-//     correlate.CalculateInnerFrequencyDistribution();
-//     correlate.CalculateLinearCorrelation();
-// });

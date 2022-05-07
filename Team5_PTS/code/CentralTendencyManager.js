@@ -107,6 +107,7 @@ class CentralTendencyManager {
 
         console.log("============= MODALITY =============");
         console.log("Title: " + lectureTitle + "\t" + biggestNum);
+        return [{'title': lectureTitle, 'number': biggestNum}];
     }
 
     CalculateAverage() {
@@ -123,6 +124,8 @@ class CentralTendencyManager {
         console.log("============= AVERAGE =============");
         console.log("Total: " + total);
         console.log("Average: " + (total/mapOfLectures.size));
+
+        return (total/mapOfLectures.size);
     }
 
     CalculateMedian() {
@@ -147,6 +150,7 @@ class CentralTendencyManager {
         // Check if the number of entries is odd
         if (occurrencesArray.length % 2 != 0) {
             console.log(occurrencesArray[occurrencesArray.length/2]);
+            return occurrencesArray[occurrencesArray.length/2];
         }
         // The number of entries is even
         else {
@@ -198,6 +202,8 @@ class CentralTendencyManager {
 
                 let res = lowerBound + ((nDivByTwo-preceedingClass)/counter)*h;
                 console.log("Res: " + res);
+
+                return res;
             }
             // The middle two are different
             else {
@@ -205,6 +211,11 @@ class CentralTendencyManager {
                                 (occurrencesArray[(occurrencesArray.length/2)-1])+
                                 (occurrencesArray[occurrencesArray.length/2])
                             )/2);
+
+                return ((
+                    (occurrencesArray[(occurrencesArray.length/2)-1])+
+                    (occurrencesArray[occurrencesArray.length/2])
+                )/2);
             }
         }
     }
