@@ -95,14 +95,72 @@ class FrequencyDistributionManager {
     }
     return relativeFrequency;
   }   
+
+  CreateDataForTable(relativeFrequency, absoluteFrequency){
+    var dataForTable = {
+      tableData: []
+    };
+    for( i = 0; i < 6; i ++ ){
+
+       let result = i+2;
+       let rf = relativeFrequency[i];
+       let af = absoluteFrequency[i];
+
+      dataForTable.tableData.push({
+        "Results" : result,
+        "Relative Frequency" : rf,
+        "Absolute Frequency" : af
+      });
+
+    }
+    
+    return dataForTable; // we have now json format ready for the table 
+  }
+
+  generateTableHead(table, data) {
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+
+      for( let key of data ){
+        let th = document.createElement("th");
+        let text = document.createTextNode(key);
+        th.appendChild(text);
+        row.appendChild(th);
+      }
+  }
+  VisualiseTable(table, dataForTable){
+     
+    for (let element of data) {
+      let row = table.insertRow();
+      for (key in element) {
+        let cell = row.insertCell();
+        let text = document.createTextNode(element[key]);
+        cell.appendChild(text);
+      }
+    }
+  }
+
+  VisualiseDiagram(){
+    
+  }
+
+  
+  ToScreen(){
+    let obj = new FileManager(); // creating object from FileManager class
+    let jsondata = obj.JsonGetterStudentResult();// so we can get the data
+
+    let intArr = fromJsonToInt(jsondata);//the data is extracted to int arrey
+    intArr = quickSort(intArr, 0, intArr.length - 1);// and sorted 
+    console.log(intArr); 
+    let aF = absoluteFrequency(intArr);
+    console.log("Absolute Frequency: " + aF);//printing the arrey of absolute frequency 
+    console.log(dataForTable);
+
+    let table = document.querySelector("table");
+    let data = Object.keys(dataForTable[0]);
+    generateTableHead(table, data);
+    VisualiseTable(table, dataForTable);
+  }
 }
 
 
-let obj = new FileManager(); // creating object from FileManager class
-let jsondata = obj.JsonGetterStudentResult();// so we can get the data
-
-let intArr = fromJsonToInt(jsondata);//the data is extracted to int arrey
-intArr = quickSort(intArr, 0, intArr.length - 1);// and sorted 
-console.log(intArr); 
-let aF = absoluteFrequency(intArr);
-console.log("Absolute Frequency: " + aF);//printing the arrey of absolute frequency 
